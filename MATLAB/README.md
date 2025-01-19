@@ -35,6 +35,6 @@ The program consists of many functions that does their required tasks.
 5.	graph3D(): This function plots a 3D surface and is called by psychrometry() function. It takes a Psychrometric property as input and plots a constant property surface between SH, DB and PT.
 6.	 graph_full(): This function is called by psychrometry() function and plots a full Psychrometric Chart.
 
-## How to use
+## How to use:
 
 Just run the program in Matlab.
