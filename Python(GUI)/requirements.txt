@@ -1,0 +1,5 @@
+tk
+numpy
+matplotlib
+mysql-connector-python
+scipy
