@@ -23,11 +23,11 @@ To make this possible, I have converted the MATLAB code into Python code as Pyth
 
 ## Installation
 
-1. Open terminal in the Python(GUI folder).
+1. Open terminal in the Python(GUI) folder.
 2. Run pip install -r requirements.txt
 
 All the dependencies will be installed.
 
-If you want to use the database features, install MYSQL in your system and configure the connect_to_mysql() function in the psychrometry.py file.
+If you want to use the database features, install MYSQL in your system and configure the connect_to_mysql() function in the psychrometry.py file. Also, run the Psychrometry.sql file in MySQL Workbench.
 
 Now, Run the Python file.
