@@ -20,7 +20,7 @@ To increase the usability of the program, I have made a Python library out of it
 
 1. To perform Psychrometric calculations we have to import psychrometric_calculator() function
 from psychrometry import psychrometric_calculator
-THe function returns all the Psychrometric properties as a dictionary. So, either store this in a variable or print any specific Psychrometric property.
+The function returns all the Psychrometric properties as a dictionary. So, either store this in a variable or print any specific Psychrometric property.
 Example-1. value=psychrometric_calculator('DB', 'SH', 0, 27, 0.01)
         2. print(psychrometric_calculator('DB', 'SH', 0, 27, 0.01)['DB'])
 The function takes 5 values(and a 6th optional) as parameters:
