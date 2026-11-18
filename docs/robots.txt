@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://psychrometrics.aditusan.dev/sitemap.xml

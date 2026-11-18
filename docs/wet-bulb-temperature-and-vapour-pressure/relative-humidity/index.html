@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wet Bulb Temperature and Vapour Pressure to Relative Humidity Converter</title>
+<meta name="description" content="Calculate relative humidity from wet bulb temperature and vapour pressure. See the formula, SI units, and related psychrometric conversions.">
+<link rel="canonical" href="https://psychrometrics.aditusan.dev/wet-bulb-temperature-and-vapour-pressure/relative-humidity/">
+
+<link rel="stylesheet" href="../../assets/site.css">
+
+
+<script defer src="../../assets/site.js"></script>
+<script defer src="../../assets/calculator.js"></script>
+</head>
+<body class="site-psychrometrics">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">P</span>Psychrometric Tools</a>
+    <nav class="site-nav" aria-label="Main navigation"><a href="../../">Calculator</a>
+<a href="../../#calculations">All input pairs</a>
+<a href="../../#direct-conversions">Conversions</a>
+<a href="../../reference/">Reference</a></nav>
+  </div>
+</header>
+<main class="wrap page" id="main">
+<div class="title">
+  <a class="back" href="../../">← Main psychrometric calculator</a>
+  <h1>Wet Bulb Temperature and Vapour Pressure to Relative Humidity Converter</h1>
+  <p>Enter the known properties and either total pressure or height above sea level to calculate relative humidity.</p>
+</div><noscript><p class="noscript notice">Enable JavaScript to run this calculator. The reference text and links below are available without it.</p></noscript><div class="calculator">
+  <section class="panel" aria-labelledby="psych-input-title">
+    <h2 class="panel-title" id="psych-input-title">Calculator inputs</h2>
+    <form class="panel-body" id="psych-form" data-first="twb" data-second="pw" data-target="rh" data-kind="state" novalidate>
+      
+      <div class="field-grid panel-section"><div class="field" data-input-slot="0">
+  <label for="firstValue"><span class="input-name">Wet Bulb Temperature</span> <span class="unit">(<span class="input-unit">°C</span>)</span></label>
+  <input id="firstValue" name="firstValue" type="number" step="any" required>
+</div>
+        <div class="field" data-input-slot="1">
+  <label for="secondValue"><span class="input-name">Vapour Pressure</span> <span class="unit">(<span class="input-unit">kPa</span>)</span></label>
+  <input id="secondValue" name="secondValue" type="number" step="any" required>
+</div></div>
+      <fieldset class="panel-section" aria-labelledby="pressure-choice">
+  <div class="field-title" id="pressure-choice">Air pressure input</div>
+  <div class="pressure-options">
+    <label><input type="radio" name="pressureMode" value="altitude" checked><span>Height Above Sea Level</span></label>
+    <label><input type="radio" name="pressureMode" value="pressure"><span>Total Pressure</span></label>
+  </div>
+  <div class="field-grid pressure-value">
+    <div class="field"><label for="altitude">Height Above Sea Level <span class="unit">(m)</span></label>
+      <input id="altitude" name="altitude" type="number" step="any" value="0" required></div>
+    <div class="field" hidden><label for="pressure">Total Pressure <span class="unit">(kPa)</span></label>
+      <input id="pressure" name="pressure" type="number" step="any" value="101.325" required disabled></div>
+  </div>
+</fieldset>
+      <div class="actions form-actions"><button class="primary" type="submit" disabled>Calculate</button>
+      </div>
+      <p class="status" id="psych-status" role="status">Extract the full archive before opening the calculator so its scripts can load.</p>
+    </form>
+  </section>
+  <section class="panel result-panel" aria-labelledby="output-title">
+    <h2 class="panel-title" id="output-title">Relative Humidity</h2>
+    <div class="metric">
+  
+  <output class="metric-value" data-property="rh" aria-live="polite">—</output>
+  <span class="small muted">%</span>
+</div>
+  </section>
+</div>
+<div class="section"><section class="panel" id="psych-history" aria-labelledby="psych-history-title">
+  <div class="panel-title history-header">
+    <h2 id="psych-history-title">Calculation history</h2>
+    <button type="button" class="history-clear" disabled>Clear history</button>
+  </div>
+  <p class="empty small history-empty">No calculations saved on this page yet.</p>
+  <ul class="history-list"></ul>
+  <p class="history-message" role="status"></p>
+</section></div><section class="section prose">
+  <h2>Input calculation</h2><p>Obtain the moisture term from the first reading, then calculate the dry bulb temperature from the second property.</p><div class="equation"><div>W = 0.622 × P<sub>v</sub> / (P − P<sub>v</sub>)</div><div>T<sub>db</sub> = [h(T<sub>wb</sub>, W<sub>s</sub>) − (W<sub>s</sub> − W) h<sub>f</sub>(T<sub>wb</sub>) − 2500 W] / (1.005 + 1.88 W)</div></div>
+  
+  <h2>Formula for relative humidity</h2><p>Water vapour partial pressure expressed as a percentage of saturation pressure at the dry bulb temperature.</p>
+    <div class="equation"><div>RH = 100 × P<sub>v</sub> / P<sub>sat</sub>(T<sub>db</sub>)</div></div>
+  <section class="notation"><h3>Symbols</h3><dl class="symbol-key">
+    <dt>T<sub>db</sub></dt><dd>Dry bulb temperature (DB), in °C.</dd><dt>T<sub>wb</sub></dt><dd>Wet bulb temperature (WB), in °C.</dd><dt>W</dt><dd>Intermediate water-vapour mass per kilogram of dry air, obtained from q/(1 − q) when known.</dd><dt>W<sub>s</sub></dt><dd>Saturated value of W at the indicated temperature.</dd><dt>RH</dt><dd>Relative humidity, in percent.</dd><dt>h</dt><dd>Moist-air enthalpy (ET), in kJ/kg dry air.</dd><dt>h<sub>f</sub></dt><dd>Enthalpy of liquid water or ice at the wet bulb temperature relative to liquid water at 0 °C, in kJ/kg water.</dd><dt>P<sub>v</sub></dt><dd>Water vapour partial pressure (PV), in kPa.</dd><dt>P<sub>sat</sub></dt><dd>Saturation vapour pressure at the temperature in parentheses, in kPa.</dd><dt>P</dt><dd>Total atmospheric pressure (PT), in kPa.</dd>
+  </dl></section>
+  <p><a href="../../reference/">Quantity definitions and calculation range</a></p>
+</section><section class="section prose">
+  <h2>Worked example</h2>
+  <p>Wet Bulb Temperature 18.724547 °C · Vapour Pressure 1.6191793 kPa · height 0 m</p>
+  <p><strong>Relative Humidity</strong> = 45.39 %</p>
+  <button type="button" data-psych-example="{&quot;values&quot;:[18.724547,1.6191793],&quot;air&quot;:{&quot;mode&quot;:&quot;altitude&quot;,&quot;value&quot;:0},&quot;first&quot;:&quot;twb&quot;,&quot;second&quot;:&quot;pw&quot;}" disabled>Use these inputs</button>
+</section><section class="section prose"><h2>More calculations with these inputs</h2>
+          <p><a href="../../wet-bulb-temperature-and-vapour-pressure/">Wet Bulb Temperature and Vapour Pressure to All Properties</a></p>
+          <ul class="link-columns"><li><a href="../../wet-bulb-temperature-and-vapour-pressure/dry-bulb-temperature/">Wet Bulb Temperature and Vapour Pressure to Dry Bulb Temperature Converter</a></li><li><a href="../../wet-bulb-temperature-and-vapour-pressure/specific-humidity/">Wet Bulb Temperature and Vapour Pressure to Specific Humidity Converter</a></li><li><a href="../../wet-bulb-temperature-and-vapour-pressure/enthalpy/">Wet Bulb Temperature and Vapour Pressure to Enthalpy Converter</a></li><li><a href="../../wet-bulb-temperature-and-vapour-pressure/specific-volume/">Wet Bulb Temperature and Vapour Pressure to Specific Volume Converter</a></li><li><a href="../../wet-bulb-temperature-and-vapour-pressure/dew-point-temperature/">Wet Bulb Temperature and Vapour Pressure to Dew Point Temperature Converter</a></li></ul></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://aditusan.dev/">aditusan.dev</a>
+    <nav aria-label="Footer navigation">
+      <a href="../../">Main psychrometric calculator</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="https://github.com/Sentinel-Android/Psychrometric-tools">Desktop project</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

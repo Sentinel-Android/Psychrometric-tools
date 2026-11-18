@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dew Point Temperature to Specific Humidity Converter</title>
+<meta name="description" content="Convert dew point temperature to specific humidity. See the formula and units.">
+<link rel="canonical" href="https://psychrometrics.aditusan.dev/dew-point-temperature-to-specific-humidity/">
+
+<link rel="stylesheet" href="../assets/site.css">
+
+
+<script defer src="../assets/site.js"></script>
+<script defer src="../assets/calculator.js"></script>
+</head>
+<body class="site-psychrometrics">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">P</span>Psychrometric Tools</a>
+    <nav class="site-nav" aria-label="Main navigation"><a href="../">Calculator</a>
+<a href="../#calculations">All input pairs</a>
+<a href="../#direct-conversions">Conversions</a>
+<a href="../reference/">Reference</a></nav>
+  </div>
+</header>
+<main class="wrap page" id="main">
+<div class="title">
+  <a class="back" href="../">← Main psychrometric calculator</a>
+  <h1>Dew Point Temperature to Specific Humidity Converter</h1>
+  <p>Convert dew point temperature to specific humidity. See the formula and units.</p>
+</div><noscript><p class="noscript notice">Enable JavaScript to run this calculator. The reference text and links below are available without it.</p></noscript><div class="calculator">
+  <section class="panel" aria-labelledby="psych-input-title">
+    <h2 class="panel-title" id="psych-input-title">Calculator inputs</h2>
+    <form class="panel-body" id="psych-form" data-first="tdp" data-second="q" data-target="q" data-kind="moisture" novalidate>
+      
+      <div class="field-grid panel-section"><div class="field" data-input-slot="0">
+  <label for="firstValue"><span class="input-name">Dew Point Temperature</span> <span class="unit">(<span class="input-unit">°C</span>)</span></label>
+  <input id="firstValue" name="firstValue" type="number" step="any" required>
+</div>
+        </div>
+      <fieldset class="panel-section" aria-labelledby="pressure-choice">
+  <div class="field-title" id="pressure-choice">Air pressure input</div>
+  <div class="pressure-options">
+    <label><input type="radio" name="pressureMode" value="altitude" checked><span>Height Above Sea Level</span></label>
+    <label><input type="radio" name="pressureMode" value="pressure"><span>Total Pressure</span></label>
+  </div>
+  <div class="field-grid pressure-value">
+    <div class="field"><label for="altitude">Height Above Sea Level <span class="unit">(m)</span></label>
+      <input id="altitude" name="altitude" type="number" step="any" value="0" required></div>
+    <div class="field" hidden><label for="pressure">Total Pressure <span class="unit">(kPa)</span></label>
+      <input id="pressure" name="pressure" type="number" step="any" value="101.325" required disabled></div>
+  </div>
+</fieldset>
+      <div class="actions form-actions"><button class="primary" type="submit" disabled>Calculate</button>
+      </div>
+      <p class="status" id="psych-status" role="status">Extract the full archive before opening the calculator so its scripts can load.</p>
+    </form>
+  </section>
+  <section class="panel result-panel" aria-labelledby="output-title">
+    <h2 class="panel-title" id="output-title">Specific Humidity</h2>
+    <div class="metric">
+  
+  <output class="metric-value" data-property="q" aria-live="polite">—</output>
+  <span class="small muted">kg water/kg moist air</span>
+</div>
+  </section>
+</div>
+<div class="section"><section class="panel" id="psych-history" aria-labelledby="psych-history-title">
+  <div class="panel-title history-header">
+    <h2 id="psych-history-title">Calculation history</h2>
+    <button type="button" class="history-clear" disabled>Clear history</button>
+  </div>
+  <p class="empty small history-empty">No calculations saved on this page yet.</p>
+  <ul class="history-list"></ul>
+  <p class="history-message" role="status"></p>
+</section></div><section class="section prose"><h2>Conversion formula</h2>
+          <p>The temperature at which air becomes saturated when cooled at the same water vapour partial pressure. Below freezing the calculation uses saturation over ice. Mass of water vapour divided by the total mass of moist air.</p>
+          <div class="equation"><div>P<sub>v</sub> = P<sub>sat</sub>(T<sub>dp</sub>)</div><div>W = 0.622 × P<sub>v</sub> / (P − P<sub>v</sub>)</div><div>q = W / (1 + W)</div></div><section class="notation"><h3>Symbols</h3><dl class="symbol-key">
+    <dt>T<sub>dp</sub></dt><dd>Dew point temperature (DP), in °C.</dd><dt>q</dt><dd>Specific humidity (SH), in kg water/kg moist air.</dd><dt>W</dt><dd>Intermediate water-vapour mass per kilogram of dry air, obtained from q/(1 − q) when known.</dd><dt>P<sub>v</sub></dt><dd>Water vapour partial pressure (PV), in kPa.</dd><dt>P<sub>sat</sub></dt><dd>Saturation vapour pressure at the temperature in parentheses, in kPa.</dd><dt>P</dt><dd>Total atmospheric pressure (PT), in kPa.</dd>
+  </dl></section>
+          <p><a href="../reference/">Quantity definitions and notation</a></p></section><section class="section prose">
+  <h2>Worked example</h2>
+  <p>Dew Point Temperature 14.196543 °C · height 0 m</p>
+  <p><strong>Specific Humidity</strong> = 0.0100000 kg water/kg moist air</p>
+  <button type="button" data-psych-example="{&quot;values&quot;:[14.196543],&quot;air&quot;:{&quot;mode&quot;:&quot;altitude&quot;,&quot;value&quot;:0},&quot;first&quot;:&quot;tdp&quot;}" disabled>Use these inputs</button>
+</section><section class="section prose"><h2>Related moisture conversions</h2>
+          <ul class="link-columns"><li><a href="../specific-humidity-to-vapour-pressure/">Specific Humidity to Vapour Pressure Converter</a></li><li><a href="../specific-humidity-to-dew-point-temperature/">Specific Humidity to Dew Point Temperature Converter</a></li><li><a href="../vapour-pressure-to-specific-humidity/">Vapour Pressure to Specific Humidity Converter</a></li><li><a href="../vapour-pressure-to-dew-point-temperature/">Vapour Pressure to Dew Point Temperature Converter</a></li><li><a href="../dew-point-temperature-to-vapour-pressure/">Dew Point Temperature to Vapour Pressure Converter</a></li></ul></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://aditusan.dev/">aditusan.dev</a>
+    <nav aria-label="Footer navigation">
+      <a href="../">Main psychrometric calculator</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="https://github.com/Sentinel-Android/Psychrometric-tools">Desktop project</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

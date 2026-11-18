@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Psychrometric Quantities, Symbols and Formulas</title>
+<meta name="description" content="Definitions, SI units, and formulas for dry bulb and wet bulb temperature, specific humidity, enthalpy, and other moist-air quantities.">
+<link rel="canonical" href="https://psychrometrics.aditusan.dev/reference/">
+
+<link rel="stylesheet" href="../assets/site.css">
+
+
+<script defer src="../assets/site.js"></script>
+</head>
+<body class="site-psychrometrics">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">P</span>Psychrometric Tools</a>
+    <nav class="site-nav" aria-label="Main navigation"><a href="../">Calculator</a>
+<a href="../#calculations">All input pairs</a>
+<a href="../#direct-conversions">Conversions</a>
+<a href="../reference/">Reference</a></nav>
+  </div>
+</header>
+<main class="wrap page" id="main">
+<div class="title">
+  <a class="back" href="../">← Main psychrometric calculator</a>
+  <h1>Psychrometric quantities and formulas</h1>
+  <p>Definitions, units, and the moist-air model used by the calculators.</p>
+</div>
+<section class="panel" aria-labelledby="quantity-definitions">
+  <h2 class="panel-title" id="quantity-definitions">Quantity definitions</h2>
+  <div class="table-wrap"><table><thead><tr><th>Quantity</th><th>Report notation</th><th>SI unit</th><th>Definition</th></tr></thead>
+  <tbody><tr><th scope="row">Dry Bulb Temperature</th><td>DB</td><td>°C</td><td>Air temperature measured by a dry, shielded thermometer.</td></tr><tr><th scope="row">Specific Humidity</th><td>SH</td><td>kg water/kg moist air</td><td>Mass of water vapour divided by the total mass of moist air.</td></tr><tr><th scope="row">Relative Humidity</th><td>RH</td><td>%</td><td>Water vapour partial pressure expressed as a percentage of saturation pressure at the dry bulb temperature.</td></tr><tr><th scope="row">Enthalpy</th><td>ET</td><td>kJ/kg dry air</td><td>Sensible and latent energy of moist air per kilogram of dry air, relative to the model’s reference state.</td></tr><tr><th scope="row">Wet Bulb Temperature</th><td>WB</td><td>°C</td><td>The temperature approached when water evaporates into air adiabatically until the air reaches saturation.</td></tr><tr><th scope="row">Specific Volume</th><td>SV</td><td>m³/kg dry air</td><td>Volume occupied by the moist-air mixture per kilogram of dry air.</td></tr><tr><th scope="row">Vapour Pressure</th><td>PV</td><td>kPa</td><td>The portion of the total air pressure contributed by water vapour. Also spelled vapor pressure.</td></tr><tr><th scope="row">Dew Point Temperature</th><td>DP</td><td>°C</td><td>The temperature at which air becomes saturated when cooled at the same water vapour partial pressure. Below freezing the calculation uses saturation over ice.</td></tr><tr><th scope="row">Total Pressure</th><td>PT</td><td>kPa</td><td>The combined pressure of dry air and water vapour.</td></tr><tr><th scope="row">Height Above Sea Level</th><td>z</td><td>m</td><td>Elevation in metres measured relative to mean sea level.</td></tr></tbody></table></div>
+</section>
+<section class="section prose">
+  <h2>Model and calculation range</h2>
+  <p>The desktop <em>Psychrometric Tools</em> project used a standard-atmosphere pressure approximation and moist-air relationships for an Atmospheric Water Generator (AWG). The web calculator uses the project's pressure, enthalpy and volume constants, continuous saturation-pressure equations, and a wet bulb energy balance.</p>
+  <p>Enter dry bulb temperatures from −60 to 160 °C, wet bulb and dew point temperatures from −100 to 160 °C, and altitudes from −500 to 11,000 m, or supply a positive total pressure directly. Valid moist-air states have vapour pressure below total pressure and at or below saturation. Very dry air can have a dew point below the calculation range.</p>
+  <h2>Moist-air formulas</h2>
+  <div class="equation"><div>q = W / (1 + W)</div><div>W = 0.622 × P<sub>v</sub> / (P − P<sub>v</sub>)</div><div>h = 1.005 T<sub>db</sub> + W (2500 + 1.88 T<sub>db</sub>)</div><div>v = 0.2871 (T<sub>db</sub> + 273.15)(1 + W/0.622) / P</div><div>RH = 100 × P<sub>v</sub> / P<sub>sat</sub>(T<sub>db</sub>)</div><div>P<sub>v</sub> = P W / (0.622 + W)</div><div>P<sub>sat</sub>(T<sub>dp</sub>) = P<sub>v</sub></div><div>h(T<sub>db</sub>, W) + (W<sub>s</sub>(T<sub>wb</sub>) − W) h<sub>f</sub>(T<sub>wb</sub>) = h(T<sub>wb</sub>, W<sub>s</sub>(T<sub>wb</sub>))</div><div>W = q / (1 − q)</div><div>h<sub>f</sub>(T<sub>wb</sub>) = 4.186 T<sub>wb</sub> for T<sub>wb</sub> ≥ 0 °C</div><div>h<sub>f</sub>(T<sub>wb</sub>) = −333.6 + 2.1 T<sub>wb</sub> for T<sub>wb</sub> &lt; 0 °C</div><div>W<sub>s</sub>(T<sub>wb</sub>) = 0.622 P<sub>sat</sub>(T<sub>wb</sub>) / [P − P<sub>sat</sub>(T<sub>wb</sub>)]</div></div>
+  <section class="notation"><h3>Symbols</h3><dl class="symbol-key">
+    <dt>T<sub>db</sub></dt><dd>Dry bulb temperature (DB), in °C.</dd><dt>T<sub>wb</sub></dt><dd>Wet bulb temperature (WB), in °C.</dd><dt>T<sub>dp</sub></dt><dd>Dew point temperature (DP), in °C.</dd><dt>q</dt><dd>Specific humidity (SH), in kg water/kg moist air.</dd><dt>W</dt><dd>Intermediate water-vapour mass per kilogram of dry air, obtained from q/(1 − q) when known.</dd><dt>W<sub>s</sub></dt><dd>Saturated value of W at the indicated temperature.</dd><dt>RH</dt><dd>Relative humidity, in percent.</dd><dt>h</dt><dd>Moist-air enthalpy (ET), in kJ/kg dry air.</dd><dt>h<sub>f</sub></dt><dd>Enthalpy of liquid water or ice at the wet bulb temperature relative to liquid water at 0 °C, in kJ/kg water.</dd><dt>v</dt><dd>Specific volume (SV), in m³/kg dry air.</dd><dt>P<sub>v</sub></dt><dd>Water vapour partial pressure (PV), in kPa.</dd><dt>P<sub>sat</sub></dt><dd>Saturation vapour pressure at the temperature in parentheses, in kPa.</dd><dt>P</dt><dd>Total atmospheric pressure (PT), in kPa.</dd>
+  </dl></section>
+  <p>For overlap near freezing, the wet bulb calculation uses the liquid branch when available.</p>
+  <h2>References</h2>
+  <ul><li><a href="https://github.com/Sentinel-Android/Psychrometric-tools/blob/main/Project%20Report%28complete%20GUI%29.pdf">Psychrometric Tools project report</a> and <a href="https://github.com/Sentinel-Android/Psychrometric-tools/tree/main/Python(GUI)">Python GUI</a></li>
+  <li>American Society of Heating, Refrigerating and Air-Conditioning Engineers (ASHRAE), <em>Handbook: Fundamentals</em>, Chapter 1, Psychrometrics. See also the <a href="https://psychrometrics.github.io/psychrolib/api_docs.html">PsychroLib formula reference</a>.</li></ul>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://aditusan.dev/">aditusan.dev</a>
+    <nav aria-label="Footer navigation">
+      <a href="../">Main psychrometric calculator</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="https://github.com/Sentinel-Android/Psychrometric-tools">Desktop project</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

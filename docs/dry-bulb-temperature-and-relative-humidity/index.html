@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dry Bulb Temperature and Relative Humidity to All Properties</title>
+<meta name="description" content="Calculate the moist-air properties from dry bulb temperature and relative humidity.">
+<link rel="canonical" href="https://psychrometrics.aditusan.dev/dry-bulb-temperature-and-relative-humidity/">
+
+<link rel="stylesheet" href="../assets/site.css">
+
+
+<script defer src="../assets/site.js"></script>
+<script defer src="../assets/calculator.js"></script>
+</head>
+<body class="site-psychrometrics">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../"><span class="brand-mark" aria-hidden="true">P</span>Psychrometric Tools</a>
+    <nav class="site-nav" aria-label="Main navigation"><a href="../">Calculator</a>
+<a href="../#calculations">All input pairs</a>
+<a href="../#direct-conversions">Conversions</a>
+<a href="../reference/">Reference</a></nav>
+  </div>
+</header>
+<main class="wrap page" id="main">
+<div class="title">
+  <a class="back" href="../">← Main psychrometric calculator</a>
+  <h1>Dry Bulb Temperature and Relative Humidity to All Properties</h1>
+  <p>Calculate the moist-air properties from dry bulb temperature and relative humidity.</p>
+</div><noscript><p class="noscript notice">Enable JavaScript to run this calculator. The reference text and links below are available without it.</p></noscript><div class="calculator">
+  <section class="panel" aria-labelledby="psych-input-title">
+    <h2 class="panel-title" id="psych-input-title">Calculator inputs</h2>
+    <form class="panel-body" id="psych-form" data-first="tdb" data-second="rh" data-target="" data-kind="state" novalidate>
+      
+      <div class="field-grid panel-section"><div class="field" data-input-slot="0">
+  <label for="firstValue"><span class="input-name">Dry Bulb Temperature</span> <span class="unit">(<span class="input-unit">°C</span>)</span></label>
+  <input id="firstValue" name="firstValue" type="number" step="any" required>
+</div>
+        <div class="field" data-input-slot="1">
+  <label for="secondValue"><span class="input-name">Relative Humidity</span> <span class="unit">(<span class="input-unit">%</span>)</span></label>
+  <input id="secondValue" name="secondValue" type="number" step="any" required>
+</div></div>
+      <fieldset class="panel-section" aria-labelledby="pressure-choice">
+  <div class="field-title" id="pressure-choice">Air pressure input</div>
+  <div class="pressure-options">
+    <label><input type="radio" name="pressureMode" value="altitude" checked><span>Height Above Sea Level</span></label>
+    <label><input type="radio" name="pressureMode" value="pressure"><span>Total Pressure</span></label>
+  </div>
+  <div class="field-grid pressure-value">
+    <div class="field"><label for="altitude">Height Above Sea Level <span class="unit">(m)</span></label>
+      <input id="altitude" name="altitude" type="number" step="any" value="0" required></div>
+    <div class="field" hidden><label for="pressure">Total Pressure <span class="unit">(kPa)</span></label>
+      <input id="pressure" name="pressure" type="number" step="any" value="101.325" required disabled></div>
+  </div>
+</fieldset>
+      <div class="actions form-actions"><button class="primary" type="submit" disabled>Calculate</button>
+      </div>
+      <p class="status" id="psych-status" role="status">Extract the full archive before opening the calculator so its scripts can load.</p>
+    </form>
+  </section>
+  <section class="panel result-panel" aria-labelledby="output-title">
+    <h2 class="panel-title" id="output-title">Output properties</h2>
+    <div class="table-wrap"><table class="results-table">
+      <thead><tr><th scope="col">Property</th><th scope="col">Value</th><th scope="col">Unit</th></tr></thead>
+      <tbody><tr><th scope="row">Dry Bulb Temperature <abbr title="Dry Bulb Temperature">DB</abbr></th>
+        <td><output data-property="tdb">—</output></td><td>°C</td></tr><tr><th scope="row">Specific Humidity <abbr title="Specific Humidity">SH</abbr></th>
+        <td><output data-property="q">—</output></td><td>kg water/kg moist air</td></tr><tr><th scope="row">Relative Humidity <abbr title="Relative Humidity">RH</abbr></th>
+        <td><output data-property="rh">—</output></td><td>%</td></tr><tr><th scope="row">Enthalpy <abbr title="Enthalpy">ET</abbr></th>
+        <td><output data-property="h">—</output></td><td>kJ/kg dry air</td></tr><tr><th scope="row">Wet Bulb Temperature <abbr title="Wet Bulb Temperature">WB</abbr></th>
+        <td><output data-property="twb">—</output></td><td>°C</td></tr><tr><th scope="row">Specific Volume <abbr title="Specific Volume">SV</abbr></th>
+        <td><output data-property="v">—</output></td><td>m³/kg dry air</td></tr><tr><th scope="row">Vapour Pressure <abbr title="Vapour Pressure">PV</abbr></th>
+        <td><output data-property="pw">—</output></td><td>kPa</td></tr><tr><th scope="row">Dew Point Temperature <abbr title="Dew Point Temperature">DP</abbr></th>
+        <td><output data-property="tdp">—</output></td><td>°C</td></tr><tr><th scope="row">Total Pressure <abbr title="Total Pressure">PT</abbr></th>
+        <td><output data-property="p">—</output></td><td>kPa</td></tr></tbody>
+    </table></div>
+  </section>
+</div>
+<div class="section"><section class="panel" id="psych-history" aria-labelledby="psych-history-title">
+  <div class="panel-title history-header">
+    <h2 id="psych-history-title">Calculation history</h2>
+    <button type="button" class="history-clear" disabled>Clear history</button>
+  </div>
+  <p class="empty small history-empty">No calculations saved on this page yet.</p>
+  <ul class="history-list"></ul>
+  <p class="history-message" role="status"></p>
+</section></div><section class="section prose">
+  <h2>Input calculation</h2><p>Use the supplied dry bulb temperature and find W from the second property.</p><div class="equation"><div>P<sub>v</sub> = (RH / 100) × P<sub>sat</sub>(T<sub>db</sub>)</div><div>W = 0.622 × P<sub>v</sub> / (P − P<sub>v</sub>)</div></div>
+  
+  
+  <section class="notation"><h3>Symbols</h3><dl class="symbol-key">
+    <dt>T<sub>db</sub></dt><dd>Dry bulb temperature (DB), in °C.</dd><dt>W</dt><dd>Intermediate water-vapour mass per kilogram of dry air, obtained from q/(1 − q) when known.</dd><dt>RH</dt><dd>Relative humidity, in percent.</dd><dt>P<sub>v</sub></dt><dd>Water vapour partial pressure (PV), in kPa.</dd><dt>P<sub>sat</sub></dt><dd>Saturation vapour pressure at the temperature in parentheses, in kPa.</dd><dt>P</dt><dd>Total atmospheric pressure (PT), in kPa.</dd>
+  </dl></section>
+  <p><a href="../reference/">Quantity definitions and calculation range</a></p>
+</section><section class="section prose">
+  <h2>Worked example</h2>
+  <p>Dry Bulb Temperature 27 °C · Relative Humidity 45.389339 % · height 0 m</p>
+  <p><strong>Enthalpy</strong> = 52.90 kJ/kg dry air</p>
+  <button type="button" data-psych-example="{&quot;values&quot;:[27,45.389339],&quot;air&quot;:{&quot;mode&quot;:&quot;altitude&quot;,&quot;value&quot;:0},&quot;first&quot;:&quot;tdb&quot;,&quot;second&quot;:&quot;rh&quot;}" disabled>Use these inputs</button>
+</section><section class="section prose"><h2>Calculate an individual property</h2><ul class="link-columns"><li><a href="../dry-bulb-temperature-and-relative-humidity/specific-humidity/">Dry Bulb Temperature and Relative Humidity to Specific Humidity Converter</a></li><li><a href="../dry-bulb-temperature-and-relative-humidity/enthalpy/">Dry Bulb Temperature and Relative Humidity to Enthalpy Converter</a></li><li><a href="../dry-bulb-temperature-and-relative-humidity/wet-bulb-temperature/">Dry Bulb Temperature and Relative Humidity to Wet Bulb Temperature Converter</a></li><li><a href="../dry-bulb-temperature-and-relative-humidity/specific-volume/">Dry Bulb Temperature and Relative Humidity to Specific Volume Converter</a></li><li><a href="../dry-bulb-temperature-and-relative-humidity/vapour-pressure/">Dry Bulb Temperature and Relative Humidity to Vapour Pressure Converter</a></li><li><a href="../dry-bulb-temperature-and-relative-humidity/dew-point-temperature/">Dry Bulb Temperature and Relative Humidity to Dew Point Temperature Converter</a></li></ul></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://aditusan.dev/">aditusan.dev</a>
+    <nav aria-label="Footer navigation">
+      <a href="../">Main psychrometric calculator</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="https://github.com/Sentinel-Android/Psychrometric-tools">Desktop project</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

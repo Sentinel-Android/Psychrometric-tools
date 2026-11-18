@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Specific Humidity and Specific Volume to Vapour Pressure Converter</title>
+<meta name="description" content="Calculate vapour pressure from specific humidity and specific volume. See the formula, SI units, and related psychrometric conversions.">
+<link rel="canonical" href="https://psychrometrics.aditusan.dev/specific-humidity-and-specific-volume/vapour-pressure/">
+<meta name="robots" content="noindex,follow">
+<link rel="stylesheet" href="../../assets/site.css">
+
+
+<script defer src="../../assets/site.js"></script>
+<script defer src="../../assets/calculator.js"></script>
+</head>
+<body class="site-psychrometrics">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../../"><span class="brand-mark" aria-hidden="true">P</span>Psychrometric Tools</a>
+    <nav class="site-nav" aria-label="Main navigation"><a href="../../">Calculator</a>
+<a href="../../#calculations">All input pairs</a>
+<a href="../../#direct-conversions">Conversions</a>
+<a href="../../reference/">Reference</a></nav>
+  </div>
+</header>
+<main class="wrap page" id="main">
+<div class="title">
+  <a class="back" href="../../">← Main psychrometric calculator</a>
+  <h1>Specific Humidity and Specific Volume to Vapour Pressure Converter</h1>
+  <p>Enter the known properties and either total pressure or height above sea level to calculate vapour pressure.</p>
+</div><noscript><p class="noscript notice">Enable JavaScript to run this calculator. The reference text and links below are available without it.</p></noscript><div class="calculator">
+  <section class="panel" aria-labelledby="psych-input-title">
+    <h2 class="panel-title" id="psych-input-title">Calculator inputs</h2>
+    <form class="panel-body" id="psych-form" data-first="q" data-second="v" data-target="pw" data-kind="state" novalidate>
+      
+      <div class="field-grid panel-section"><div class="field" data-input-slot="0">
+  <label for="firstValue"><span class="input-name">Specific Humidity</span> <span class="unit">(<span class="input-unit">kg water/kg moist air</span>)</span></label>
+  <input id="firstValue" name="firstValue" type="number" step="any" required>
+</div>
+        <div class="field" data-input-slot="1">
+  <label for="secondValue"><span class="input-name">Specific Volume</span> <span class="unit">(<span class="input-unit">m³/kg dry air</span>)</span></label>
+  <input id="secondValue" name="secondValue" type="number" step="any" required>
+</div></div>
+      <fieldset class="panel-section" aria-labelledby="pressure-choice">
+  <div class="field-title" id="pressure-choice">Air pressure input</div>
+  <div class="pressure-options">
+    <label><input type="radio" name="pressureMode" value="altitude" checked><span>Height Above Sea Level</span></label>
+    <label><input type="radio" name="pressureMode" value="pressure"><span>Total Pressure</span></label>
+  </div>
+  <div class="field-grid pressure-value">
+    <div class="field"><label for="altitude">Height Above Sea Level <span class="unit">(m)</span></label>
+      <input id="altitude" name="altitude" type="number" step="any" value="0" required></div>
+    <div class="field" hidden><label for="pressure">Total Pressure <span class="unit">(kPa)</span></label>
+      <input id="pressure" name="pressure" type="number" step="any" value="101.325" required disabled></div>
+  </div>
+</fieldset>
+      <div class="actions form-actions"><button class="primary" type="submit" disabled>Calculate</button>
+      </div>
+      <p class="status" id="psych-status" role="status">Extract the full archive before opening the calculator so its scripts can load.</p>
+    </form>
+  </section>
+  <section class="panel result-panel" aria-labelledby="output-title">
+    <h2 class="panel-title" id="output-title">Vapour Pressure</h2>
+    <div class="metric">
+  
+  <output class="metric-value" data-property="pw" aria-live="polite">—</output>
+  <span class="small muted">kPa</span>
+</div>
+  </section>
+</div>
+<div class="section"><section class="panel" id="psych-history" aria-labelledby="psych-history-title">
+  <div class="panel-title history-header">
+    <h2 id="psych-history-title">Calculation history</h2>
+    <button type="button" class="history-clear" disabled>Clear history</button>
+  </div>
+  <p class="empty small history-empty">No calculations saved on this page yet.</p>
+  <ul class="history-list"></ul>
+  <p class="history-message" role="status"></p>
+</section></div><section class="section prose">
+  <h2>Input calculation</h2><p>Obtain the moisture term from the first reading, then calculate the dry bulb temperature from the second property.</p><div class="equation"><div>W = q / (1 − q)</div><div>T<sub>db</sub> = P × v / [0.2871 (1 + W/0.622)] − 273.15</div></div>
+  
+  <h2>Formula for vapour pressure</h2><p>The portion of the total air pressure contributed by water vapour. Also spelled vapor pressure.</p>
+    <div class="equation"><div>P<sub>v</sub> = P W / (0.622 + W)</div></div>
+  <section class="notation"><h3>Symbols</h3><dl class="symbol-key">
+    <dt>T<sub>db</sub></dt><dd>Dry bulb temperature (DB), in °C.</dd><dt>q</dt><dd>Specific humidity (SH), in kg water/kg moist air.</dd><dt>W</dt><dd>Intermediate water-vapour mass per kilogram of dry air, obtained from q/(1 − q) when known.</dd><dt>v</dt><dd>Specific volume (SV), in m³/kg dry air.</dd><dt>P<sub>v</sub></dt><dd>Water vapour partial pressure (PV), in kPa.</dd><dt>P</dt><dd>Total atmospheric pressure (PT), in kPa.</dd>
+  </dl></section>
+  <p><a href="../../reference/">Quantity definitions and calculation range</a></p>
+</section><section class="section prose">
+  <h2>Worked example</h2>
+  <p>Specific Humidity 0.01 kg water/kg moist air · Specific Volume 0.86427316 m³/kg dry air · height 0 m</p>
+  <p><strong>Vapour Pressure</strong> = 1.61918 kPa</p>
+  <button type="button" data-psych-example="{&quot;values&quot;:[0.01,0.86427316],&quot;air&quot;:{&quot;mode&quot;:&quot;altitude&quot;,&quot;value&quot;:0},&quot;first&quot;:&quot;q&quot;,&quot;second&quot;:&quot;v&quot;}" disabled>Use these inputs</button>
+</section><section class="section prose"><h2>More calculations with these inputs</h2>
+          <p><a href="../../specific-humidity-and-specific-volume/">Specific Humidity and Specific Volume to All Properties</a></p>
+          <ul class="link-columns"><li><a href="../../specific-humidity-and-specific-volume/dry-bulb-temperature/">Specific Humidity and Specific Volume to Dry Bulb Temperature Converter</a></li><li><a href="../../specific-humidity-and-specific-volume/relative-humidity/">Specific Humidity and Specific Volume to Relative Humidity Converter</a></li><li><a href="../../specific-humidity-and-specific-volume/enthalpy/">Specific Humidity and Specific Volume to Enthalpy Converter</a></li><li><a href="../../specific-humidity-and-specific-volume/wet-bulb-temperature/">Specific Humidity and Specific Volume to Wet Bulb Temperature Converter</a></li><li><a href="../../specific-humidity-and-specific-volume/dew-point-temperature/">Specific Humidity and Specific Volume to Dew Point Temperature Converter</a></li></ul></section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="https://aditusan.dev/">aditusan.dev</a>
+    <nav aria-label="Footer navigation">
+      <a href="../../">Main psychrometric calculator</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="https://github.com/Sentinel-Android/Psychrometric-tools">Desktop project</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
